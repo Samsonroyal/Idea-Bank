@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard';
 import SubmitIdea from './components/SubmitIdea';
 import FindIdeas from './components/FindIdeas';
 import UserSearch from './components/UserSearch';
+import YourIdeas from './components/YourIdeas'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/submit-idea" element={<SubmitIdea />} />
       <Route path="/find-ideas" element={<FindIdeas />} />
+      <Route path="/your-ideas" element={<YourIdeas />} />
       <Route path="/user-search" element={<UserSearch />} />
         </Route>
         <Route path="*" element={<Navigate to="/login" />} />
