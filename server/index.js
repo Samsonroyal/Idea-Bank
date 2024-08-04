@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//Routes
+//API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/auth/register', require('./routes/auth'));
 app.use('/api/auth/login', require('./routes/auth'));
@@ -36,4 +36,9 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+});
+
+
+app.get("/", (req, res) => {
+  res.send("We are in business");
 });
