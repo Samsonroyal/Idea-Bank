@@ -23,7 +23,7 @@ const Dashboard = () => {
           <Card
             title="Your Submitted Ideas"
             description="View all the ideas you have submitted."
-            onClick={() => handleNavigate('/ideas')}
+            onClick={() => handleNavigate('/your-ideas')}
           />
           <Card
             title="Search Ideas"
