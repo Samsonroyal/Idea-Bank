@@ -82,61 +82,7 @@ function FindIdeas() {
   return (
     <div className="bg-gray-100 min-h-screen py-8">
       <Navbar />
-      <div className="max-w-4xl mx-auto">
-
-        <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
-          <div className="bg-green-500 p-4">
-            <h2 className="text-xl font-bold text-white">Your Ideas</h2>
-          </div>
-          <div className="p-6">
-            {userIdeas.length > 0 ? (
-              <ul className="space-y-4">
-                {userIdeas.map(idea => (
-                  <li key={idea._id} className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{idea.title}</h3>
-                    <p className="text-gray-600">{idea.description}</p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-gray-600 text-center">You haven't submitted any ideas yet.</p>
-            )}
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
-          <div className="bg-purple-500 p-4">
-            <h2 className="text-xl font-bold text-white">Submit Idea</h2>
-          </div>
-          <div className="p-6">
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Title"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
-              </div>
-              <div className="mb-4">
-                <textarea
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  placeholder="Description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </div>
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Submitting...' : 'Submit Idea'}
-              </button>
-            </form>
-          </div>
-        </div>
+      <div className="max-w-4xl mx-auto pt-10">
 
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="bg-yellow-500 p-4">
@@ -156,7 +102,7 @@ function FindIdeas() {
                   <li key={idea._id} className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">{idea.title}</h3>
                     <p className="text-gray-600 mb-2">{idea.description}</p>
-                    <p className="text-sm text-gray-500">Submitted by: {idea.user.email}</p>
+                    {idea.user && <p className="text-sm text-gray-500">Submitted by: {idea.user.email}</p>}
                   </li>
                 ))}
               </ul>
