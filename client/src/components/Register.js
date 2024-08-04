@@ -37,7 +37,7 @@ const Register = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+      await axios.post('https://idea-bank.onrender.com/api/auth/register', { name, email, password });
       console.log('Registration successful');
       console.log('Data submitted:', { name, email, password });
       navigate('/ideas');

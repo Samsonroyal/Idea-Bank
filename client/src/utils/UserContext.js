@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
     setError('');
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/auth/profile', {
+      const res = await axios.get('https://idea-bank.onrender.com/api/auth/profile', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setUser(res.data);
@@ -31,7 +31,7 @@ export const UserProvider = ({ children }) => {
     setIsLoading(true);
     setError('');
     try {
-      const res = await axios.get(`http://localhost:5000/api/auth/search?query=${query}`);
+      const res = await axios.get(`https://idea-bank.onrender.com/api/auth/search?query=${query}`);
       setUsers(res.data);
     } catch (err) {
       setError('An error occurred while searching. Please try again.');

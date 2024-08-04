@@ -13,10 +13,10 @@ function UserSearch() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen py-8">
+    <div >
       <Navbar />
-            
-      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="bg-gray-100 min-h-screen pt-20">
+      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md overflow-hidden ">
         <div className="bg-blue-500 p-4">
           <h1 className="text-2xl font-bold text-white">Search Users</h1>
         </div>
@@ -64,6 +64,7 @@ function UserSearch() {
             )}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

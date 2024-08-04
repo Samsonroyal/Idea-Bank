@@ -3,7 +3,7 @@ import axios from 'axios';
 import Navbar from './Navbar';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://idea-bank.onrender.com',
   headers: {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${localStorage.getItem('token')}`

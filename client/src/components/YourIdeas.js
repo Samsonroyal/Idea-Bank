@@ -10,7 +10,7 @@ const api = axios.create({
   }
 });
 
-function FindIdeas() {
+function YourIdeas() {
   const [ideas, setIdeas] = useState([]);
   const [userIdeas, setUserIdeas] = useState([]);
   const [title, setTitle] = useState('');
@@ -79,42 +79,33 @@ function FindIdeas() {
     idea.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  return (
-    <div className="bg-gray-100 min-h-screen py-8">
+  return(
+<div className="bg-gray-100 min-h-screen py-8">
       <Navbar />
       <div className="max-w-4xl mx-auto pt-10">
 
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="bg-yellow-500 p-4">
-            <h2 className="text-xl font-bold text-white">Search Ideas</h2>
+        <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+          <div className="bg-green-500 p-4">
+            <h2 className="text-xl font-bold text-white">Your Ideas</h2>
           </div>
           <div className="p-6">
-            <input
-              type="text"
-              placeholder="Search ideas..."
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            {filteredIdeas.length > 0 ? (
+            {userIdeas.length > 0 ? (
               <ul className="space-y-4">
-                {filteredIdeas.map(idea => (
+                {userIdeas.map(idea => (
                   <li key={idea._id} className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">{idea.title}</h3>
-                    <p className="text-gray-600 mb-2">{idea.description}</p>
-                    {idea.user && <p className="text-sm text-gray-500">Submitted by: {idea.user.email}</p>}
+                    <p className="text-gray-600">{idea.description}</p>
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-600 text-center">No matching ideas found.</p>
+              <p className="text-gray-600 text-center">You haven't submitted any ideas yet.</p>
             )}
           </div>
         </div>
-
-      </div>
-    </div>
-  );
-}
-
-export default FindIdeas;
+        </div>
+        </div>
+          );
+        }
+        
+        export default YourIdeas;
